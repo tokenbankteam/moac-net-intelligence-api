@@ -1,19 +1,19 @@
-Ethereum Network Intelligence API
+MOAC Network Intelligence API
 ============
 [![Build Status][travis-image]][travis-url] [![dependency status][dep-image]][dep-url]
 
-This is the backend service which runs along with ethereum and tracks the network status, fetches information through JSON-RPC and connects through WebSockets to [eth-netstats](https://github.com/cubedro/eth-netstats) to feed information. For full install instructions please read the [wiki](https://github.com/ethereum/wiki/wiki/Network-Status).
+This is the backend service which runs along with moac and tracks the network status, fetches information through JSON-RPC and connects through WebSockets to [eth-netstats](https://github.com/cubedro/eth-netstats) to feed information. For full install instructions please read the [wiki](https://github.com/moac/wiki/wiki/Network-Status).
 
 
 ## Prerequisite
-* eth, geth or pyethapp
+* moac
 * node
 * npm
 
 
 ## Installation on an Ubuntu EC2 Instance
 
-Fetch and run the build shell. This will install everything you need: latest ethereum - CLI from develop branch (you can choose between eth or geth), node.js, npm & pm2.
+Fetch and run the build shell. This will install everything you need: latest moac - CLI from develop branch (you can choose between eth or geth), node.js, npm & pm2.
 
 ```bash
 bash <(curl https://raw.githubusercontent.com/cubedro/eth-net-intelligence-api/master/bin/build.sh)
@@ -25,7 +25,7 @@ instructions on how to build/run/setup. Configuration instructions below still a
 
 ## Configuration
 
-Configure the app modifying [processes.json](/eth-net-intelligence-api/blob/master/processes.json). Note that you have to modify the backup processes.json file located in `./bin/processes.json` (to allow you to set your env vars without being rewritten when updating).
+Configure the app modifying [processes.json](/moac-net-intelligence-api/blob/master/processes.json). Note that you have to modify the backup processes.json file located in `./bin/processes.json` (to allow you to set your env vars without being rewritten when updating).
 
 ```json
 "env":
@@ -37,7 +37,7 @@ Configure the app modifying [processes.json](/eth-net-intelligence-api/blob/mast
 		"INSTANCE_NAME"   : "", // whatever you wish to name your node
 		"CONTACT_DETAILS" : "", // add your contact details here if you wish (email/skype)
 		"WS_SERVER"       : "wss://rpc.ethstats.net", // path to eth-netstats WebSockets api server
-		"WS_SECRET"       : "see http://forum.ethereum.org/discussion/2112/how-to-add-yourself-to-the-stats-dashboard-its-not-automatic", // WebSockets api server secret used for login
+		"WS_SECRET"       : "see http://forum.moac.org/discussion/2112/how-to-add-yourself-to-the-stats-dashboard-its-not-automatic", // WebSockets api server secret used for login
 		"VERBOSITY"       : 2 // Set the verbosity (0 = silent, 1 = error, warn, 2 = error, warn, info, success, 3 = all logs)
 	}
 ```
@@ -59,7 +59,7 @@ To update the API client use the following command:
 ~/bin/www/bin/update.sh
 ```
 
-It will stop the current netstats client processes, automatically detect your ethereum implementation and version, update it to the latest develop build, update netstats client and reload the processes.
+It will stop the current netstats client processes, automatically detect your moac implementation and version, update it to the latest develop build, update netstats client and reload the processes.
 
 [travis-image]: https://travis-ci.org/cubedro/eth-net-intelligence-api.svg
 [travis-url]: https://travis-ci.org/cubedro/eth-net-intelligence-api
