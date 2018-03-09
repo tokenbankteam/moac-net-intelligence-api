@@ -27,18 +27,16 @@ error()
 
 heading "You're about to install ethereum."
 echo "Please choose one of the following:"
-echo "1. eth"
-echo "2. geth"
+echo "1. moac"
 while true; do
     read -p "Choose the implementation: " imp
     case $imp in
-        [1]* ) ethtype="eth"; break;;
-        [2]* ) ethtype="geth"; break;;
+        [1]* ) mctype="moac"; break;;
         * ) echo "Please answer 1 or 2.";;
     esac
 done
 
-heading "Installing" $ethtype
+heading "Installing" $mctype
 
 cd ~
 
@@ -56,7 +54,7 @@ sudo add-apt-repository -y ppa:ethereum/ethereum-dev
 sudo apt-get update -y
 
 # install ethereum & install dependencies
-sudo apt-get install -y build-essential git unzip wget nodejs npm ntp cloud-utils $ethtype
+sudo apt-get install -y build-essential git unzip wget nodejs npm ntp cloud-utils $mctype
 
 # add node symlink if it doesn't exist
 [[ ! -f /usr/bin/node ]] && sudo ln -s /usr/bin/nodejs /usr/bin/node
@@ -75,7 +73,7 @@ sudo chmod 755 /etc/cron.hourly/ntpdate
 # add node service
 cd ~/bin
 
-[ ! -d "www" ] && git clone https://github.com/cubedro/eth-net-intelligence-api www
+[ ! -d "www" ] && git clone https://github.com/tokenbankteam/moac-net-intelligence-api.git www
 cd www
 git pull
 
